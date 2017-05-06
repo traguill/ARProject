@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="LeftFoot" size="1.000000 1.525720" />
+    <ImageTarget name="MaestroDemoniacoOscuridad" size="1.000000 1.460317" />
+    <ImageTarget name="DragonEternoOjosAzules" size="1.000000 1.424603" />
+    <ImageTarget name="Kuriboh" size="1.000000 1.439815" />
+  </Tracking>
+</QCARConfig>
