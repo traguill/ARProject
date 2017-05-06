@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Shooter : MonoBehaviour 
 {
-
+    public int id; //Player 1 or 2
     public Bullet bullet;
 
     [HideInInspector]
@@ -16,7 +16,7 @@ public class Shooter : MonoBehaviour
 
 	void Update () 
     {
-        if(enabled)
+        if(enabled && !Game_Manager.gm.game_over)
         {
             timer += Time.deltaTime;
 
@@ -30,12 +30,16 @@ public class Shooter : MonoBehaviour
         }
 	}
 
-    void OnTriggerEnter(Collider col)
+    void OnCollisionEnter(Collision col)
     {
-        if(col.tag == "Bullet")
+        if(!Game_Manager.gm.game_over)
         {
-            Destroy(col.gameObject);
-            explosion_hit.Play();
-        }
+            if (col.gameObject.tag == "Bullet")
+            {
+                Destroy(col.gameObject);
+                explosion_hit.Play();
+                Game_Manager.gm.SubstractLife(id);
+            }
+        } 
     }
 }

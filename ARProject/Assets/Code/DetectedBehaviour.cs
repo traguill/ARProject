@@ -46,7 +46,7 @@ public class DetectedBehaviour : MonoBehaviour, Vuforia.ITrackableEventHandler
             component.enabled = true;
         }
 
-        shooter.enabled = true;
+        shooter.enabled = true; //TODO: change for s_enabled (bug that solves the problem to test in a pc without a cam)
 
         Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " found");
     }
