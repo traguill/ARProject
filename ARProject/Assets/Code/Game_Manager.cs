@@ -29,6 +29,12 @@ public class Game_Manager : MonoBehaviour
         p2_life = max_lifes;
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            Application.Quit();
+    }
+
 
     public void SubstractLife(int id)
     {
@@ -66,6 +72,9 @@ public class Game_Manager : MonoBehaviour
         game_over = false;
         p1_life = max_lifes;
         p2_life = max_lifes;
+
+        p1_life_txt.text = "Player1 life: " + p1_life.ToString();
+        p2_life_txt.text = "Player2 life: " + p2_life.ToString();
     }
 
 }
