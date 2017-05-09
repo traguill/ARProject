@@ -20,7 +20,6 @@ public class Bullet : MonoBehaviour {
     {
        if(collision.gameObject.tag == "Field")
         {
-            Debug.Log("collision");
             Vector3 n = collision.contacts[0].normal.normalized;
 
             direction = direction - 2 * (Vector3.Dot(direction, n)) * n;

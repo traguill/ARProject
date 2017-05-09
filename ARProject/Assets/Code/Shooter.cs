@@ -11,8 +11,17 @@ public class Shooter : MonoBehaviour
 
     public Transform shoot_position;
     public ParticleSystem explosion_hit;
+    public ExplosionAudio explosion_audio;
 
     float timer = 0.0f;
+
+    public AudioClip[] blast;
+    AudioSource audio_src;
+
+    private void Start()
+    {
+        audio_src = GetComponent<AudioSource>();
+    }
 
 	void Update () 
     {
@@ -25,6 +34,9 @@ public class Shooter : MonoBehaviour
                 Bullet tmp = (Bullet)Instantiate(bullet, shoot_position.position, shoot_position.rotation);
                 tmp.direction = transform.forward;
                 timer = 0.0f;
+
+                audio_src.clip = blast[Random.Range(0, blast.Length)];
+                audio_src.Play();
             }
            
         }
@@ -38,6 +50,7 @@ public class Shooter : MonoBehaviour
             {
                 Destroy(col.gameObject);
                 explosion_hit.Play();
+                explosion_audio.Play();
                 Game_Manager.gm.SubstractLife(id);
             }
         } 
