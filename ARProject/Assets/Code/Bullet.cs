@@ -7,12 +7,18 @@ public class Bullet : MonoBehaviour {
     public Vector3 direction;
 
     public float speed = 3.0f;
+
+    float timer = 0.0f;
 	
 	void Update () 
     {
         if (!Game_Manager.gm.game_over)
             transform.position += direction * speed * Time.deltaTime;
         else
+            Destroy(gameObject);
+
+        timer += Time.deltaTime;
+        if (timer >= 5.0f)
             Destroy(gameObject);
 	}
 
