@@ -25,7 +25,7 @@ public class Shooter : MonoBehaviour
 
 	void Update () 
     {
-        if(enabled && !Game_Manager.gm.game_over)
+        if(enabled && !Game_Manager.gm.game_over && Game_Manager.gm.starting)
         {
             timer += Time.deltaTime;
 

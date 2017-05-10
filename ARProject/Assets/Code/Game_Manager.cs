@@ -8,6 +8,7 @@ public class Game_Manager : MonoBehaviour
     public Text p1_life_txt;
     public Text p2_life_txt;
     public Text winner;
+    public GameObject start;
     public GameObject restart;
 
     private int p1_life;
@@ -15,6 +16,8 @@ public class Game_Manager : MonoBehaviour
 
     [HideInInspector]
     public bool game_over = false;
+    [HideInInspector]
+    public bool starting = false;
 
     public static Game_Manager gm;
 
@@ -75,6 +78,12 @@ public class Game_Manager : MonoBehaviour
 
         p1_life_txt.text = "Player1 life: " + p1_life.ToString();
         p2_life_txt.text = "Player2 life: " + p2_life.ToString();
+    }
+
+    public void Starting()
+    {
+        starting = true;
+        start.SetActive(false);
     }
 
 }
