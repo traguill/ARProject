@@ -90,4 +90,18 @@ public class Game_Manager : MonoBehaviour
         AudioManager.am.TransitionToGame();
     }
 
+    public void AddLife(int id)
+    {
+        if(id == 1)
+        {
+            ++p1_life;
+            p1_life_txt.text = "Player1 life: " + p1_life.ToString();
+        }
+        else
+        {
+            ++p2_life;
+            p2_life_txt.text = "Player2 life: " + p2_life.ToString();
+        }
+    }
+
 }
