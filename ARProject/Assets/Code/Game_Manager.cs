@@ -52,6 +52,7 @@ public class Game_Manager : MonoBehaviour
                 winner.gameObject.SetActive(true);
                 winner.text = "Player 2 wins!";
                 restart.SetActive(true);
+                AudioManager.am.TransitionToMenu();
             }
         }
         else
@@ -64,6 +65,7 @@ public class Game_Manager : MonoBehaviour
                 winner.gameObject.SetActive(true);
                 winner.text = "Player 1 wins!";
                 restart.SetActive(true);
+                AudioManager.am.TransitionToMenu();
             }
         }
     }
@@ -78,12 +80,14 @@ public class Game_Manager : MonoBehaviour
 
         p1_life_txt.text = "Player1 life: " + p1_life.ToString();
         p2_life_txt.text = "Player2 life: " + p2_life.ToString();
+        AudioManager.am.TransitionToGame();
     }
 
     public void Starting()
     {
         starting = true;
         start.SetActive(false);
+        AudioManager.am.TransitionToGame();
     }
 
 }
