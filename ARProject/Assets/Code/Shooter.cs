@@ -4,6 +4,8 @@ using System.Collections;
 public class Shooter : MonoBehaviour 
 {
     public int id; //Player 1 or 2
+    public Transform enemy_player;
+    public Transform parent;
     public Bullet bullet;
 
     [HideInInspector]
@@ -56,7 +58,7 @@ public class Shooter : MonoBehaviour
                 if(!double_shot_enabled)
                 {
                     Bullet tmp = (Bullet)Instantiate(bullet, shoot_position.position, shoot_position.rotation);
-                    tmp.direction = transform.forward;
+                    tmp.direction = transform.forward.normalized;
                     timer = 0.0f;
 
                     audio_src.clip = blast[Random.Range(0, blast.Length)];
@@ -65,10 +67,10 @@ public class Shooter : MonoBehaviour
                 else
                 {
                     Bullet left = (Bullet)Instantiate(bullet, double_shot_left.position, double_shot_left.rotation);
-                    left.direction = transform.forward;
+                    left.direction = transform.forward.normalized;
 
                     Bullet right = (Bullet)Instantiate(bullet, double_shot_right.position, double_shot_right.rotation);
-                    right.direction = transform.forward;
+                    right.direction = transform.forward.normalized;
 
                     audio_src.clip = blast[Random.Range(0, blast.Length)];
                     audio_src.Play();
