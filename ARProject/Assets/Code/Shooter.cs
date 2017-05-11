@@ -101,6 +101,18 @@ public class Shooter : MonoBehaviour
             }
            
         }
+        else
+        {
+            if(Game_Manager.gm.game_over)
+            {
+                //Reset
+                double_shot_enabled = false;
+                quick_shot_enabled = false;
+                double_shoot_timer = 0.0f;
+                quick_shot_timer = 0.0f;
+
+            }
+        }
 	}
 
     void OnCollisionEnter(Collision col)

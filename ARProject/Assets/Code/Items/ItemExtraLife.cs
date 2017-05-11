@@ -3,6 +3,13 @@ using System.Collections;
 
 public class ItemExtraLife : MonoBehaviour
 {
+
+    void Update()
+    {
+        if (Game_Manager.gm.game_over)
+            Destroy(gameObject);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player1")

@@ -41,6 +41,6 @@ public class ItemManager : MonoBehaviour {
         dst *= -0.5f;
         dst += player2.position;
 
-        Instantiate(items[Random.Range(0, items.Length)], dst, Quaternion.identity);
+        Instantiate(items[Random.Range(0, items.Length)], dst, Quaternion.Euler(new Vector3(0,90,0)));
     }
 }
